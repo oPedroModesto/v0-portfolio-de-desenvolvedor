@@ -6,7 +6,7 @@ import { portfolioData, type Language } from "./portfolio-data";
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (typeof portfolioData)["pt"];
+  t: (typeof portfolioData)[Language];
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(

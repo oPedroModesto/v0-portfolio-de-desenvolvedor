@@ -1,20 +1,36 @@
 "use client";
 
+import { useState } from "react";
 import { useLanguage } from "@/lib/language-context";
 
-function TechBadge({ name, icon, color }: { name: string; icon: string; color: string }) {
+function TechBadge({
+  name,
+  icon,
+  color,
+}: {
+  name: string;
+  icon: string;
+  color: string;
+}) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <div className="flex items-center gap-2 rounded-md border border-border/40 bg-card/60 px-3 py-2 hover:border-primary/40 hover:bg-card transition-all duration-200 cursor-default">
-      <img
-        src={`https://cdn.simpleicons.org/${icon}/${color.replace("#", "")}`}
-        alt={name}
-        width={16}
-        height={16}
-        className="shrink-0"
-        onError={(e) => {
-          (e.currentTarget as HTMLImageElement).style.display = "none";
-        }}
-      />
+      {icon && !imgError ? (
+        <img
+          src={`https://cdn.simpleicons.org/${icon}/${color.replace("#", "")}`}
+          alt={name}
+          width={16}
+          height={16}
+          className="shrink-0"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span
+          className="h-2.5 w-2.5 rounded-full shrink-0"
+          style={{ backgroundColor: color }}
+        />
+      )}
       <span className="text-sm text-foreground/90 whitespace-nowrap">{name}</span>
     </div>
   );
