@@ -137,32 +137,43 @@ export function Projects() {
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-6">
-            {filteredProjects.map((project) => (
-              <Card
-                key={project.id}
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelectedProjectId(project.id)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setSelectedProjectId(project.id);
-                  }
-                }}
-                className="group relative flex flex-col justify-between bg-card border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-0.5 cursor-pointer overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              >
-                {/* Top subtle accent line on hover */}
-                <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {filteredProjects.map((project) => {
+              const projectNumber = String(
+                projects.findIndex((p) => p.id === project.id) + 1
+              ).padStart(2, "0");
 
-                <div>
-                  <CardHeader className="pb-3 space-y-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <Badge
-                        variant="outline"
-                        className="text-[11px] font-medium border-primary/30 text-primary bg-primary/5"
-                      >
-                        {project.category}
-                      </Badge>
+              return (
+                <Card
+                  key={project.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedProjectId(project.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedProjectId(project.id);
+                    }
+                  }}
+                  className="group relative flex flex-col justify-between bg-card/80 border-border/50 hover:border-primary/45 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                  {/* Top subtle accent line on hover */}
+                  <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  <div>
+                    {/* Stylized Window / Engineering Top Bar */}
+                    <div className="flex items-center justify-between px-6 py-2.5 border-b border-border/40 bg-background/40">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-[11px] text-primary/70 font-semibold">
+                          #{projectNumber}
+                        </span>
+                        <span className="text-border">•</span>
+                        <Badge
+                          variant="outline"
+                          className="text-[11px] font-medium border-primary/30 text-primary bg-primary/5 py-0 h-5"
+                        >
+                          {project.category}
+                        </Badge>
+                      </div>
 
                       <span className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono">
                         <span
@@ -176,59 +187,61 @@ export function Projects() {
                       </span>
                     </div>
 
-                    <div className="flex items-start justify-between gap-3">
-                      <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
-                        {project.title}
-                      </CardTitle>
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border/60 bg-background/60 text-muted-foreground group-hover:border-primary/40 group-hover:bg-primary/10 group-hover:text-primary transition-all">
-                        <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <CardHeader className="pt-5 pb-3">
+                      <div className="flex items-start justify-between gap-3">
+                        <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
+                          {project.title}
+                        </CardTitle>
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border/60 bg-background/60 text-muted-foreground group-hover:border-primary/40 group-hover:bg-primary/15 group-hover:text-primary transition-all">
+                          <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </div>
                       </div>
-                    </div>
-                  </CardHeader>
+                    </CardHeader>
 
-                  <CardContent className="pb-4">
-                    {/* Key Highlight Pill */}
-                    <div className="flex items-center gap-2 text-xs font-medium text-primary/90 bg-primary/5 border border-primary/15 rounded-md px-3 py-2 mb-3">
-                      <Sparkles className="h-3.5 w-3.5 shrink-0 text-primary" />
-                      <span className="truncate">{project.highlight}</span>
-                    </div>
+                    <CardContent className="pb-4">
+                      {/* Key Highlight Pill */}
+                      <div className="flex items-center gap-2 text-xs font-medium text-primary/90 bg-primary/5 border border-primary/15 rounded-md px-3 py-2 mb-3">
+                        <Sparkles className="h-3.5 w-3.5 shrink-0 text-primary" />
+                        <span className="truncate">{project.highlight}</span>
+                      </div>
 
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-                  </CardContent>
-                </div>
-
-                <CardFooter className="pt-2 flex flex-col items-start gap-4 border-t border-border/30 mt-2">
-                  <div className="flex flex-wrap gap-1.5 w-full">
-                    {project.techs.slice(0, 5).map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className="text-xs font-normal"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.techs.length > 5 && (
-                      <Badge
-                        variant="outline"
-                        className="text-xs font-mono text-muted-foreground"
-                      >
-                        +{project.techs.length - 5}
-                      </Badge>
-                    )}
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                        {project.description}
+                      </p>
+                    </CardContent>
                   </div>
 
-                  <div className="flex items-center justify-between w-full text-xs font-medium text-muted-foreground group-hover:text-primary transition-colors">
-                    <span>{t.projects.viewDetails}</span>
-                    <span className="font-mono text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
-                      →
-                    </span>
-                  </div>
-                </CardFooter>
-              </Card>
-            ))}
+                  <CardFooter className="pt-3 flex flex-col items-start gap-4 border-t border-border/30 mt-2 bg-background/20">
+                    <div className="flex flex-wrap gap-1.5 w-full">
+                      {project.techs.slice(0, 5).map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="secondary"
+                          className="text-xs font-normal"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.techs.length > 5 && (
+                        <Badge
+                          variant="outline"
+                          className="text-xs font-mono text-muted-foreground"
+                        >
+                          +{project.techs.length - 5}
+                        </Badge>
+                      )}
+                    </div>
+
+                    <div className="flex items-center justify-between w-full text-xs font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                      <span>{t.projects.viewDetails}</span>
+                      <span className="font-mono text-xs translate-x-0 group-hover:translate-x-1 transition-transform">
+                        →
+                      </span>
+                    </div>
+                  </CardFooter>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </div>
