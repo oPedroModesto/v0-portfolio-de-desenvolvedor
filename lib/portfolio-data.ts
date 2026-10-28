@@ -5,8 +5,17 @@ export const portfolioData = {
       role: "Engenheiro de Computação / Full Stack & RPA Developer",
       location: "Sorocaba-SP, Brasil",
       greeting: "Olá, eu sou",
+      availability: "Disponível para novos projetos & oportunidades",
       cta: "Ver Projetos",
       ctaSecondary: "Contato",
+      copyEmail: "Copiar E-mail",
+      emailCopied: "E-mail copiado!",
+      stats: [
+        { value: "3+", label: "Anos de Experiência" },
+        { value: "9+", label: "Projetos de Destaque" },
+        { value: "RPA & IA", label: "Automação Inteligente" },
+        { value: "Full Stack", label: "Python, Next.js & Cloud" },
+      ],
     },
     nav: {
       about: "Sobre",
@@ -27,14 +36,42 @@ export const portfolioData = {
         "Full Stack Python",
         "Cloud Computing",
       ],
+      pillars: [
+        {
+          title: "Automação de Processos (RPA)",
+          description:
+            "Robôs resilientes, extensões Chrome (Manifest V3) e eliminação de tarefas manuais repetitivas com governança.",
+          icon: "bot",
+        },
+        {
+          title: "Engenharia de Dados",
+          description:
+            "Modelagem relacional em PostgreSQL, pipelines de integração e dashboards analíticos para suporte à decisão.",
+          icon: "database",
+        },
+        {
+          title: "Desenvolvimento Full Stack",
+          description:
+            "Sistemas web ponta a ponta com Python (FastAPI), Next.js, React e integrações com APIs de grandes marketplaces.",
+          icon: "code",
+        },
+        {
+          title: "Cloud & Infraestrutura",
+          description:
+            "Arquiteturas modernas e armazenamento distribuído de alta disponibilidade em GCP, AWS S3 e Cloudflare R2.",
+          icon: "cloud",
+        },
+      ],
     },
     experience: {
       title: "Experiência",
+      currentBadge: "Atual",
       items: [
         {
           company: "IDS - Instituto de Diagnóstico",
           role: "Estagiário & Líder de Projetos",
           period: "08/2026 - Atual",
+          current: true,
           description:
             "Liderança de Projetos: Atuo como líder no desenvolvimento e implementação do novo Site Intranet da empresa, gerindo o ciclo de vida do projeto desde o planejamento até a execução.\n\nComunicação Corporativa e Transformação Digital: Criação de um ambiente digital centralizado para otimizar a comunicação interna, centralizar fluxos de informação e facilitar o acesso a recursos institucionais.\n\nDesenvolvimento Acadêmico e Prático: Cumprimento da carga horária de estágio obrigatório, aplicando na prática conceitos acadêmicos de tecnologia e gestão no dia a dia corporativo.",
           techs: [
@@ -49,6 +86,7 @@ export const portfolioData = {
           company: "E-commerce CoutinhoShop",
           role: "Automações e Engenharia de Dados",
           period: "11/2025 - 04/2026",
+          current: false,
           description:
             "Responsável pela estruturação do departamento de Automações e Engenharia de Dados. Desenvolvimento de aplicações em Python para orquestração de pedidos e priorização de tarefas via Trello. Criação de sistema de visualização de promoções (Mercado Livre) e ferramenta de upload simultâneo de imagens (Cloudflare R2) para múltiplas lojas. Implementação de dashboards baseados em PostgreSQL e GCP.",
           techs: ["Python", "PostgreSQL", "GCP", "Cloudflare R2", "Trello API"],
@@ -57,6 +95,7 @@ export const portfolioData = {
           company: "WI Engenharia",
           role: "Soluções Industriais",
           period: "03/2023 - 07/2025",
+          current: false,
           description:
             "Planejamento e execução de inspeções técnicas. Desenvolvimento de soluções industriais personalizadas para otimização de serviços de campo.",
           techs: ["Automação Industrial", "Inspeções Técnicas", "Otimização"],
@@ -455,12 +494,18 @@ export const portfolioData = {
     contact: {
       title: "Vamos conversar?",
       description:
-        "Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato!",
+        "Estou sempre aberto a novas oportunidades, projetos desafiadores e conexões técnicas. Escolha o canal de sua preferência ou copie meus contatos abaixo.",
       email: "pedromodesto1712@gmail.com",
       phone: "+55 15 99685-8060",
-      emailLabel: "Email",
+      emailLabel: "Enviar E-mail",
       linkedinLabel: "LinkedIn",
       whatsappLabel: "WhatsApp",
+      copyLabel: "Copiar",
+      copiedLabel: "Copiado!",
+      locationLabel: "Localização & Fuso",
+      locationValue: "Sorocaba-SP, Brasil (GMT-3)",
+      statusLabel: "Disponibilidade",
+      statusValue: "Aberto a oportunidades & projetos",
     },
     footer: {
       rights: "Todos os direitos reservados.",
@@ -473,8 +518,17 @@ export const portfolioData = {
       role: "Computer Engineer / Full Stack & RPA Developer",
       location: "Sorocaba-SP, Brazil",
       greeting: "Hello, I'm",
+      availability: "Available for new projects & opportunities",
       cta: "View Projects",
       ctaSecondary: "Contact",
+      copyEmail: "Copy Email",
+      emailCopied: "Email copied!",
+      stats: [
+        { value: "3+", label: "Years of Experience" },
+        { value: "9+", label: "Featured Projects" },
+        { value: "RPA & AI", label: "Smart Automation" },
+        { value: "Full Stack", label: "Python, Next.js & Cloud" },
+      ],
     },
     nav: {
       about: "About",
@@ -495,14 +549,42 @@ export const portfolioData = {
         "Full Stack Python",
         "Cloud Computing",
       ],
+      pillars: [
+        {
+          title: "Process Automation (RPA)",
+          description:
+            "Resilient bots, Chrome Extensions (Manifest V3), and elimination of repetitive manual workflows with full governance.",
+          icon: "bot",
+        },
+        {
+          title: "Data Engineering",
+          description:
+            "PostgreSQL relational modeling, integration pipelines, and analytical dashboards for data-driven decisions.",
+          icon: "database",
+        },
+        {
+          title: "Full Stack Development",
+          description:
+            "End-to-end web systems built with Python (FastAPI), Next.js, React, and major marketplace API integrations.",
+          icon: "code",
+        },
+        {
+          title: "Cloud & Infrastructure",
+          description:
+            "Modern architectures and high-availability distributed storage across GCP, AWS S3, and Cloudflare R2.",
+          icon: "cloud",
+        },
+      ],
     },
     experience: {
       title: "Experience",
+      currentBadge: "Current",
       items: [
         {
           company: "IDS - Instituto de Diagnóstico",
           role: "Intern & Project Leader",
           period: "08/2026 - Present",
+          current: true,
           description:
             "Project Leadership: Leading the development and implementation of the company's new Intranet website, managing the project lifecycle from planning to execution.\n\nCorporate Communication & Digital Transformation: Creation of a centralized digital environment to optimize internal communication, streamline information flows, and facilitate access to institutional resources.\n\nAcademic & Practical Development: Fulfilling mandatory internship hours, applying academic technology and management concepts to corporate day-to-day operations.",
           techs: [
@@ -517,6 +599,7 @@ export const portfolioData = {
           company: "E-commerce CoutinhoShop",
           role: "Automation & Data Engineering",
           period: "11/2025 - 04/2026",
+          current: false,
           description:
             "Responsible for structuring the Automation and Data Engineering department. Development of Python applications for order orchestration and task prioritization via Trello. Creation of promotion visualization system (Mercado Livre) and simultaneous image upload tool (Cloudflare R2) for multiple stores. Implementation of dashboards based on PostgreSQL and GCP.",
           techs: ["Python", "PostgreSQL", "GCP", "Cloudflare R2", "Trello API"],
@@ -525,6 +608,7 @@ export const portfolioData = {
           company: "WI Engenharia",
           role: "Industrial Solutions",
           period: "03/2023 - 07/2025",
+          current: false,
           description:
             "Planning and execution of technical inspections. Development of customized industrial solutions for field service optimization.",
           techs: ["Industrial Automation", "Technical Inspections", "Optimization"],
@@ -923,12 +1007,18 @@ export const portfolioData = {
     contact: {
       title: "Let's talk?",
       description:
-        "I'm always open to new opportunities and interesting projects. Get in touch!",
+        "I'm always open to new opportunities, challenging projects, and technical connections. Choose your preferred channel or copy my contact details below.",
       email: "pedromodesto1712@gmail.com",
       phone: "+55 15 99685-8060",
-      emailLabel: "Email",
+      emailLabel: "Send Email",
       linkedinLabel: "LinkedIn",
       whatsappLabel: "WhatsApp",
+      copyLabel: "Copy",
+      copiedLabel: "Copied!",
+      locationLabel: "Location & Timezone",
+      locationValue: "Sorocaba-SP, Brazil (GMT-3)",
+      statusLabel: "Availability",
+      statusValue: "Open to opportunities & projects",
     },
     footer: {
       rights: "All rights reserved.",

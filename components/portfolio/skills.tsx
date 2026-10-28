@@ -13,9 +13,18 @@ function TechBadge({
   color: string;
 }) {
   const [imgError, setImgError] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <div className="flex items-center gap-2 rounded-md border border-border/40 bg-card/60 px-3 py-2 hover:border-primary/40 hover:bg-card transition-all duration-200 cursor-default">
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        borderColor: hovered ? `${color}80` : undefined,
+        boxShadow: hovered ? `0 0 16px -4px ${color}40` : undefined,
+      }}
+      className="flex items-center gap-2.5 rounded-lg border border-border/50 bg-background/60 px-3.5 py-2 hover:bg-background transition-all duration-200 cursor-default"
+    >
       {icon && !imgError ? (
         <img
           src={`https://cdn.simpleicons.org/${icon}/${color.replace("#", "")}`}
@@ -31,7 +40,9 @@ function TechBadge({
           style={{ backgroundColor: color }}
         />
       )}
-      <span className="text-sm text-foreground/90 whitespace-nowrap">{name}</span>
+      <span className="text-sm font-medium text-foreground/90 whitespace-nowrap">
+        {name}
+      </span>
     </div>
   );
 }
@@ -47,13 +58,21 @@ export function Skills() {
             {t.skills.title}
           </h2>
 
-          <div className="grid sm:grid-cols-2 gap-10">
+          <div className="grid sm:grid-cols-2 gap-6">
             {t.skills.categories.map((category) => (
-              <div key={category.name}>
-                <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-medium">
-                  {category.name}
-                </h3>
-                <div className="flex flex-wrap gap-2">
+              <div
+                key={category.name}
+                className="rounded-xl border border-border/50 bg-card/50 p-6 hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-border/40">
+                  <h3 className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
+                    {category.name}
+                  </h3>
+                  <span className="text-[11px] font-mono text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full">
+                    {category.items.length}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2.5">
                   {category.items.map((item) => (
                     <TechBadge
                       key={item.name}
